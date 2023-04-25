@@ -1,9 +1,14 @@
-import * as React from 'react';
-import { View } from 'react-native';
+import * as React from "react";
+import { View } from "react-native";
 
 const SubscribeScreen = () => {
-  // Add subscribe screen code here
-  return <View></View>;
+  return (
+    <View>
+      <View>
+        <Image source={require("../assets/little-lemon-logo-grey.png")} />
+      </View>
+    </View>
+  );
 };
 
 export default SubscribeScreen;
