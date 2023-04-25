@@ -12,7 +12,13 @@ import { validateEmail } from "../utils/index";
 
 const SubscribeScreen = () => {
   const [email, setEmail] = React.useState("");
-  const [isValidEmail, setIsValidEmail] = React.useState(true);
+  const [isValidEmail, setIsValidEmail] = React.useState(false);
+
+  const handleInput = (e) => {
+    setEmail(e);
+    const parseEmail = validateEmail(e);
+    setIsValidEmail(parseEmail ? true : false);
+  };
 
   const handleSubmit = () => {
     if (!isValidEmail) {
@@ -51,10 +57,8 @@ const SubscribeScreen = () => {
         <TextInput
           placeholder="Type your email"
           value={email}
-          onChange={setEmail}
+          onChangeText={handleInput}
           style={styles.inputEmail}
-          keyboardType="email"
-          maxLength={30}
         />
         <TouchableOpacity
           style={{
@@ -63,6 +67,7 @@ const SubscribeScreen = () => {
           }}
           activeOpacity={0.5}
           onPress={handleSubmit}
+          disabled={true}
         >
           <Text style={{ textAlign: "center", color: "#fff", fontSize: 16 }}>
             Subcribe
