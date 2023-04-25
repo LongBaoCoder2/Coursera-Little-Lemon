@@ -67,7 +67,7 @@ const SubscribeScreen = () => {
           }}
           activeOpacity={0.5}
           onPress={handleSubmit}
-          disabled={true}
+          disabled={!isValidEmail}
         >
           <Text style={{ textAlign: "center", color: "#fff", fontSize: 16 }}>
             Subcribe
